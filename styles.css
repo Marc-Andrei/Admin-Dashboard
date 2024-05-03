@@ -1,23 +1,26 @@
 :root {
-    --gray-border: 1px solid lightgray;
+    --gray-border: 2px solid lightgray;
 }
 .container {
     display: grid;
     grid-template-areas: "sidebar header"
                          "sidebar main";
-    grid-template-rows: 1fr 3fr;
+    grid-template-rows: min-content min-content;
     grid-template-columns: 1fr 3fr;
 }
 
 .sidebar {
     grid-area: sidebar;
     background-color: #1892d3;
+    color: white;
+    font-weight: 700;
 
 }
 
 .sidebar ul{
     display:grid;
     gap: 20px;
+    grid-auto-rows: min-content;
 }
 
 .sidebar li {
@@ -51,15 +54,17 @@
     grid-template-areas: "projects announcements"
                          "projects trending";
     grid-template-columns: 3fr 1fr;
-    grid-template-rows: 1fr 1fr;
+    grid-template-rows: min-content min-content;
 }
 
 .projects {
     grid-area: projects;
     display: grid;
     grid-template-columns: 1fr 1fr;
-    padding: 30px;
+    padding: 50px 20px;
     gap: 20px;
+    position: relative;
+    grid-auto-rows: min-content;
 }
 
 .card {
@@ -72,18 +77,77 @@
     box-shadow: -5px 0px orange;
 }
 
-.projects:first-child:before {
+.card::first-line {
+    font-weight: 700;
+}
+
+.projects::before {
     content: "Your Projects";
     position: absolute;
+    top: 25px;
+    left: 20px;
+    font-weight: 700;
+    
     
 }
 .announcements {
     grid-area: announcements;
+    margin: 50px 20px 50px 0;
+    position: relative;
+    
+}
+
+.announcementCard,
+.trendingCard {
+    border-bottom: var(--gray-border);
+    border-right: var(--gray-border);
+    position: relative;
+    border-radius: 10px;
+    background-color: white;
+    padding: 20px;
+}
+
+.announcementCard div {
+    font-weight: 700;
+}
+
+.announcementCard p {
+    padding-bottom: 40px;
+    border-bottom: 1px solid lightgray;
+}
+
+.announcementCard p:last-child {
+    padding-bottom: 0px;
+    border-bottom: none;
+}
+
+.announcements::before {
+    content: "Announcements";
+    position: absolute;
+    top: -25px;
+    font-weight: 700;
 }
 
 .trending {
     grid-area: trending;
+    margin-right: 20px;
+}
+
+.trending > div {
+    font-weight: 700;
 }
 .bottom p{
     display:inline;
+}
+.buttons {
+    display:grid;
+    grid-auto-flow: column;
+    gap: 25px;
+}
+.buttons button {
+    background-color: #1892d3;
+    padding: 0.5em 1em;
+    border: none;
+    border-radius: 25px;
+    color: white;
 }

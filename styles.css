@@ -25,6 +25,10 @@
 
 .sidebar li {
     list-style: none;
+    display: grid;
+    grid-auto-flow: column;
+    grid-auto-columns: min-content;
+    align-items: last center;
 }
 
 .header {
@@ -75,6 +79,27 @@
     background-color: white;
     padding: 20px;
     box-shadow: -5px 0px orange;
+    display: grid;
+    grid-template-rows: min-content min-content 1fr;
+    
+}
+
+.card div:first-child {
+    font-weight: 700;
+}
+
+svg{
+    width: 1.5em;
+    height: 1.5em;
+}
+
+.card .svgs {
+    display: grid;
+    grid-auto-flow: column;
+    gap: 20px;
+    justify-content: end;
+    align-self: end;
+
 }
 
 .card::first-line {
@@ -150,4 +175,62 @@
     border: none;
     border-radius: 25px;
     color: white;
+}
+
+li svg {
+    fill: white;
+    margin-right: 1rem;
+    font-size: 0.8em;
+}
+
+.dashboard {
+    font-size: 1.5rem;
+}
+
+.right svg:first-child {
+    width: 1.3em;
+    height: 1.3em;
+}
+
+.right svg:nth-child(2) {
+    width: 2em;
+    height: 2em;
+}
+
+input {
+    border: none;
+    background-color: lightgray;
+    border-radius: 25px;
+    width: 25em;
+}
+
+.left {
+    margin-left: 2em;
+}
+.right {
+    font-weight: 700;
+    margin-right: 2em;
+}
+
+.left,
+.right {
+    display: grid;
+    grid-auto-flow: column;
+    align-items: center;
+    gap:1em;
+}
+
+.about {
+    display: grid;
+    grid-auto-flow: column;
+    align-items: center;
+    font-weight: 700;
+}
+
+.about p::first-line {
+    font-size: 0.7em;
+}
+
+.about svg {
+    width: ;
 }

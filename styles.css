@@ -265,3 +265,8 @@ input {
     color: gray;
 }
 
+.trending div {
+    font-weight: 700;
+    color: black;
+}
+

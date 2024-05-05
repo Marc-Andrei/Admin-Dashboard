@@ -1,5 +1,6 @@
 :root {
     --gray-border: 2px solid lightgray;
+    font-family: "Comic Neue", cursive;
 }
 .container {
     display: grid;
@@ -68,7 +69,7 @@
     padding: 50px 20px;
     gap: 20px;
     position: relative;
-    grid-auto-rows: min-content;
+    grid-auto-rows:repeat(auto-fit, minmax(min-content, 1fr));
 }
 
 .card {
@@ -86,6 +87,7 @@
 
 .card div:first-child {
     font-weight: 700;
+    color: black;
 }
 
 svg{
@@ -102,9 +104,6 @@ svg{
 
 }
 
-.card::first-line {
-    font-weight: 700;
-}
 
 .projects::before {
     content: "Your Projects";
@@ -134,6 +133,7 @@ svg{
 
 .announcementCard div {
     font-weight: 700;
+    color: black;
 }
 
 .announcementCard p {
@@ -153,13 +153,33 @@ svg{
     font-weight: 700;
 }
 
-.trending {
+.trending ul {
     grid-area: trending;
     margin-right: 20px;
+    display: grid;
+    grid-template-columns: min-content max-content;
+    grid-auto-rows: min-content;
+    justify-items: start;
+    align-items: center;
+    gap: 1em;;
+    
 }
 
-.trending > div {
+.trending ul li::first-line {
     font-weight: 700;
+    color: black;
+}
+.trending svg {
+    width: 2.5em;
+    height: 2.5em;
+}
+
+.trending li {
+    list-style: none;
+}
+
+.bottom {
+    margin: 0 2em;
 }
 .bottom p{
     display:inline;
@@ -225,6 +245,9 @@ input {
     grid-auto-flow: column;
     align-items: center;
     font-weight: 700;
+    grid-template-columns: 1fr 14em;
+    gap: 1em;
+    line-height: 1.3em;
 }
 
 .about p::first-line {
@@ -232,5 +255,13 @@ input {
 }
 
 .about svg {
-    width: ;
+    width: 3em;
+    height: 3em;
 }
+
+.card,
+.announcementCard,
+.trendingCard {
+    color: gray;
+}
+
